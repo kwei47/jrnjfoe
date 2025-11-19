@@ -1,4 +1,3 @@
-// 获取全局App实例（方便调用云数据库）
 const app = getApp();
 const db = app.globalData.db;
 
@@ -26,6 +25,7 @@ Page({
     // 从云数据库获取分类列表
     getCategoryList(callback) {
         db.collection("category")
+            .orderBy("createTime", "desc")
             .get()
             .then((res) => {
                 this.setData({ categoryList: res.data });
@@ -62,6 +62,7 @@ Page({
 
         // 编辑分类（有currentCategoryId则是编辑）
         if (this.data.currentCategoryId) {
+            // 编辑分类
             db.collection("category")
                 .doc(this.data.currentCategoryId)
                 .update({ data: { name } })
@@ -73,9 +74,8 @@ Page({
                 .catch((err) => {
                     wx.showToast({ title: "编辑失败", icon: "none" });
                 });
-        }
-        // 新增分类
-        else {
+        } else {
+            // 新增分类
             db.collection("category")
                 .add({ data: { name, createTime: db.serverDate() } })
                 .then(() => {
