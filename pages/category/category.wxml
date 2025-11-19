@@ -1,0 +1,22 @@
+<view class="container">
+  <!-- 新增分类按钮 -->
+  <button type="primary" bindtap="showAddCategoryModal">新增分类</button>
+  
+  <!-- 分类列表 -->
+  <view class="category-list">
+    <block wx:for="{{categoryList}}" wx:key="_id">
+      <view class="category-item">
+        <text>{{item.name}}</text>
+        <view class="operate">
+          <button size="mini" bindtap="editCategory" data-item="{{item}}">编辑</button>
+          <button size="mini" type="warn" bindtap="deleteCategory" data-id="{{item._id}}">删除</button>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 新增/编辑分类弹窗 -->
+  <modal title="{{modalTitle}}" hidden="{{isModalHidden}}" bindconfirm="confirmCategory" bindcancel="cancelCategory">
+    <input placeholder="请输入分类名称" value="{{currentCategoryName}}" bindinput="inputCategoryName"></input>
+  </modal>
+</view>

@@ -1,0 +1,48 @@
+.container {
+    padding: 20rpx;
+}
+
+.form-item {
+    margin-bottom: 30rpx;
+}
+
+.form-item label {
+    display: block;
+    margin-bottom: 10rpx;
+    font-weight: 500;
+}
+
+.form-item input,
+.form-item textarea {
+    padding: 15rpx;
+    border: 1rpx solid #eee;
+    border-radius: 8rpx;
+}
+
+.form-item textarea {
+    height: 150rpx;
+    resize: none;
+}
+
+.picker-view {
+    padding: 15rpx;
+    border: 1rpx solid #eee;
+    border-radius: 8rpx;
+}
+
+.img-upload {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20rpx;
+}
+
+.img-upload image {
+    width: 150rpx;
+    height: 150rpx;
+    object-fit: cover;
+    border-radius: 8rpx;
+}
+
+.submit-btn {
+    margin-top: 50rpx;
+}
