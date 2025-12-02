@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "noLib": true,
+        "types": ["../node_modules/types-for-adobe/Photoshop/2015.5"]
+    }
+}
